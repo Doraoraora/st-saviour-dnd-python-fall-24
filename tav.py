@@ -14,18 +14,10 @@ class Tav:
         self.wisdom = 0
         self.assign_stats()
 
-    
-        character_sheet:self
-        self.strength = assign_stats[0]
-        self.dexterity = assign_stats[1]
-        self.constitution = assign_stats[2]
-        self.charisma = assign_stats[3]
-        self.intelligence = assign_stats[4]
-        self.wisdom = assign_stats[5]
-        
+    def print_character_sheet(self):
         print('====== ' + ' THE LAST OF US 2 ' + ' ======')
-        print('What is your name? :  ' + self.name)
-        print('Choose your role :  ' + self.role)
+        print('Name:  ' + self.name)
+        print('Role:  ' + self.role)
         #print('Level: ' + str(self.level))
         print('--------- ' +' YOUR STATS ' + ' ---------')
         print('Strength         ' + str(self.strength))
@@ -39,3 +31,9 @@ class Tav:
 def assign_stats(self) -> None:
         standard = [15, 14, 13, 12, 10, 8]
         random.shuffle(standard)
+        self.strength = standard[0]
+        self.dexterity = standard[1]
+        self.constitution = standard[2]
+        self.charisma = standard[3]
+        self.intelligence = standard[4]
+        self.wisdom = standard[5]

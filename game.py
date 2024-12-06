@@ -1,4 +1,5 @@
 import time
+import random
 from tav import Tav
 from draw import draw_d20
 
@@ -14,17 +15,20 @@ if __name__ == '__main__':
     #collecting user input!!
     name = input('Name: ')
     print("SERAPHITE, JACKSON RESIDENT, WOLF, FEDRA")
-    role = input(str("Choose your role: "))
-    player = Tav(name, role) 
+    role = input("Choose your role: ")
+    player = Tav(name, role)
+    player.print_character_sheet()
 
-   #  (input('Would you like to proceed or change stats/name? '))
-    #if input == 'YES':
-    #    print(role)
-   # if input == 'NO':
-   #     print('Too bad! /n' + role)
+    print_dramatic_text('Would you like to proceed or change stats/name? ')
+    response = input()
+    if response == 'YES':
+        print(role)
+    if response == 'NO':
+        print('Too bad! /n' + role)
 
-    print_dramatic_text('Which weapon would you like to wield?'   )
-    print((input('SHIV, MOTOLOV, BASEBALL BAT, MACHETE, BOW AND ARROW   ')))
+    print_dramatic_text('Which weapon would you like to wield?')
+    print('SHIV, MOTOLOV, BASEBALL BAT, MACHETE, BOW AND ARROW')
+    weapon = input()
    
     sv = 'SHIV'
     mv = 'MOTOLOV'
@@ -71,8 +75,8 @@ if __name__ == '__main__':
         print_dramatic_text('The waves crash impatiently on the coast. You walk through the pier and encounter an enemy!')
     if location == dS:
         print_dramatic_text('You travel through the streets looking for supplies. The Bank looks promising. /n You swerve through the debris and make it to the bank lobby. /n A swarm of enemies swarm you!')
-      
-    import random   
+
+   
 def generate_monster() -> int:
     r = random.randint(1, 12)
     draw_d20(20)
