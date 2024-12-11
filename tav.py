@@ -28,7 +28,7 @@ class Tav:
         print('Wisdom           ' + str(self.wisdom))
         print('---------------------------------------')
 
-def assign_stats(self) -> None:
+    def assign_stats(self) -> None:
         standard = [15, 14, 13, 12, 10, 8]
         random.shuffle(standard)
         self.strength = standard[0]

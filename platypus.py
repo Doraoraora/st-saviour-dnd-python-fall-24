@@ -6,7 +6,14 @@ class Platypus(Mammal):
 
 def lay_eggs(self):
     self.eggs += 1
+
+    def __str__(self):
+        return f'name: {self.name}  species: {self.species}, hair color: {self.color}, '
+
+
+
+
 if __name__ == '__main__':
     perry = Platypus('Perry', 'platypus', 'green', 0)
     perry.eat('salad')
-    perry.sleep()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    perry.sleep()

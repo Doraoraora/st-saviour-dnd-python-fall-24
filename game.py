@@ -9,6 +9,72 @@ def print_dramatic_text(text: str, delay=0.1):
         time.sleep(delay)
     print()
 
+def generate_monster() -> int:
+    r = random.randint(1, 12)
+    draw_d20(20)
+    if r == 1 or r == 2 or r == 3:
+        print('+++++++ ' ' RUNNERS ' ' +++++++')
+        print('+                                     +')
+        print('+          roll required:  8          +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
+        return 8
+    # if r < 8:
+    #     print('You died to a runner...? Embarassing...')
+
+
+    if r == 4 or r == 5:
+        print('+++++++ ' ' STALKERS ' ' +++++++')
+        print('+                                     +')
+        print('+          roll required: 12          +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
+        return 12
+    # if r > 12:
+    #     print('I understand. These things are scary... / G A M E   O V E R ')
+
+    if r == 6 or r == 7:
+        print('++++++++ ' ' CLICKERS ' ' ++++++++')
+        print('+                                     +')
+        print('+          roll required: 14          +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
+        return 12
+    # if r > 14:
+    #     print(' /n G A M E   O V E R ')
+
+    if r == 8 or r == 9:
+        print('+++++++ ' ' SHAMBLERS ' ' +++++++')
+        print('+                                     +')
+        print('+          roll required: 16          +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
+        return 16
+    # if r > 16:
+    #     print(' /n  G A M E   O V E R ')
+
+    if r == 10 or r == 11:
+        print('+++++++ ' ' BLOATERS ' ' +++++++')
+        print('+                                     +')
+        print('+          roll required:  18         +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
+        return 18
+    # if r > 18:
+    #     print(' /n   G A M E  O V E R')
+    if r == 12:
+        eye = '\U0001F441'
+        print('+++++++++ ' + eye + '  THE RAT KING ' + eye + '  +++++++++')
+        print('+                                     +')
+        print('+          roll required:  20         +')
+        print('+                                     +')
+        print('+++++++++++++++++++++++++++++++++++++++')
+        return 20
+    # if r > 20:
+    #     print(' /n ')
+    return -1
+
+
 
 if __name__ == '__main__':
     #print('THE LAST OF US 2')
@@ -19,7 +85,7 @@ if __name__ == '__main__':
     player = Tav(name, role)
     player.print_character_sheet()
 
-    print_dramatic_text('Would you like to proceed or change stats/name? ')
+    print_dramatic_text('Would you like to proceed or change stats/name?')
     response = input()
     if response == 'YES':
         print(role)
@@ -75,70 +141,15 @@ if __name__ == '__main__':
         print_dramatic_text('The waves crash impatiently on the coast. You walk through the pier and encounter an enemy!')
     if location == dS:
         print_dramatic_text('You travel through the streets looking for supplies. The Bank looks promising. /n You swerve through the debris and make it to the bank lobby. /n A swarm of enemies swarm you!')
-
-   
-def generate_monster() -> int:
-    r = random.randint(1, 12)
-    draw_d20(20)
-    if r == 1 or r == 2 or r == 3:
-        print('+++++++ ' ' RUNNERS ' ' +++++++')
-        print('+                                     +')
-        print('+          roll required:  8          +')
-        print('+                                     +')
-        print('+++++++++++++++++++++++++++++++++++++++')
-        return 8
-    if r < 8:
-        print('You died to a runner...? Embarassing...')
-
-
-    if r == 4 or r == 5:
-        print('+++++++ ' ' STALKERS ' ' +++++++')
-        print('+                                     +')
-        print('+          roll required: 12          +')
-        print('+                                     +')
-        print('+++++++++++++++++++++++++++++++++++++++')
-        return 12
-    if r > 12:
-        print('I understand. These things are scary... / G A M E   O V E R ')
-
-    if r == 6 or r == 7:
-        print('++++++++ ' ' CLICKERS ' ' ++++++++')
-        print('+                                     +')
-        print('+          roll required: 14          +')
-        print('+                                     +')
-        print('+++++++++++++++++++++++++++++++++++++++')
-        return 12
-    if r > 14:
-        print(' /n G A M E   O V E R ')
-
-    if r == 8 or r == 9:
-        print('+++++++ ' ' SHAMBLERS ' ' +++++++')
-        print('+                                     +')
-        print('+          roll required: 16          +')
-        print('+                                     +')
-        print('+++++++++++++++++++++++++++++++++++++++')
-        return 16
-    if r > 16:
-        print(' /n  G A M E   O V E R ')
-
-    if r == 10 or r == 11:
-        print('+++++++ ' ' BLOATERS ' ' +++++++')
-        print('+                                     +')
-        print('+          roll required:  18          +')
-        print('+                                     +')
-        print('+++++++++++++++++++++++++++++++++++++++')
-        return 18
-    if r > 18:
-        print(' /n   G A M E  O V E R')
-    if location == mH and r == 12:
-        eye = '\U0001F441'
-        print('+++++++++ ' + eye + '  THE RAT KING ' + eye + '  +++++++++')
-        print('+                                     +')
-        print('+          roll required:  20         +')
-        print('+                                     +')
-        print('+++++++++++++++++++++++++++++++++++++++')
-        return 20
-    if r > 20:
-        print(' /n ')
-    #return -1
     
+    # begin monster encounter
+    requirement = generate_monster()
+    print_dramatic_text('Press ENTER to roll ...')
+    input()
+    roll = random.randint(1, 20)
+    print_dramatic_text('You needed a ' + str(requirement) + ', you rolled ' + str(roll) + ' ...')
+    if roll >= requirement:
+        print('YOU WIN, YAY!!')
+    else:
+        print('GAME OVER!')
+
